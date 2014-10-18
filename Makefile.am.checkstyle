@@ -1,0 +1,9 @@
+.PHONY: check-style
+
+CPPLINT_OPTIONS =
+
+check-style:
+	@echo "Starting to check coding style with cpplint..."
+	find $(top_srcdir)/src -name "*.cc" -o -name "*.cpp" -o -name "*.h" | xargs -n1 python $(top_srcdir)/scripts/cpplint.py --root=src --counting=detailed $(CPPLINT_OPTIONS)
+	find $(top_srcdir)/tests -name "*.cc" -o -name "*.cpp" -o -name "*.h" | xargs -n1 python $(top_srcdir)/scripts/cpplint.py --root=tests --counting=detailed $(CPPLINT_OPTIONS)
+	@echo "Successfully checked coding style with cpplint."
