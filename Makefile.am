@@ -1,6 +1,10 @@
 ACLOCAL_AMFLAGS=-I m4
 EXTRA_DIST=autogen.sh
 
+bin_PROGRAMS=seagull
+seagull_SOURCES=src/main.cc
+seagull_LDADD=libseagull.la
+
 lib_LTLIBRARIES=libseagull.la
 libseagull_la_SOURCES=src/test.cc
 libseagull_la_CPPFLAGS=-I$(top_srcdir)/src
